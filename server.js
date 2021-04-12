@@ -18,6 +18,7 @@ const signUp = require("./controllers/signUp");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const deepai = require("./controllers/deepai");
+const { json } = require("body-parser");
 
 const DB = knex({
   client: "pg",
@@ -31,6 +32,8 @@ const DB = knex({
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.post("/", (req, res) => res.status(200).json("Welcome Home"));
 
 app.post("/signin", (req, res) => signIn.handleSignIn(req, res, DB, bcrypt));
 
