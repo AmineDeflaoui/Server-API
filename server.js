@@ -29,7 +29,13 @@ const DB = knex({
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => res.status(200).send("Welcome Home"));
 
