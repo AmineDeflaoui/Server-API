@@ -11,14 +11,12 @@ const app = express();
 const port = 3000;
 
 const knex = require("knex");
-// const { json } = require("body-parser");
-
 const signIn = require("./controllers/signIn");
 const signUp = require("./controllers/signUp");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 const deepai = require("./controllers/deepai");
-const { json } = require("body-parser");
+const json = require("body-parser");
 
 const DB = knex({
   client: "pg",
@@ -31,7 +29,7 @@ const DB = knex({
 });
 
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 app.get("/", (req, res) => res.status(200).send("Welcome Home"));
 
