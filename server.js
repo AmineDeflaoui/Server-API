@@ -33,7 +33,7 @@ const DB = knex({
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/", (req, res) => res.status(200).json("Welcome Home"));
+app.post("/", (req, res) => res.status(200).send("Welcome Home"));
 
 app.post("/signin", (req, res) => signIn.handleSignIn(req, res, DB, bcrypt));
 
