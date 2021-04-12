@@ -44,6 +44,6 @@ app.put("/image", (req, res) => image.handleImage(req, res, DB));
 
 app.post("/deepai", (req, res) => deepai.handleDeepAi(req, res));
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || port, () => {
+  console.log(`Example app listening at http://localhost:${process.env.PORT}`);
 });
