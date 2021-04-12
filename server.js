@@ -21,10 +21,13 @@ const json = require("body-parser");
 const DB = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1", // localhost
-    user: "postgres",
-    password: "3010",
-    database: "smart_brain",
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    }, // localhost
+    // user: "postgres",
+    // password: "3010",
+    // database: "smart_brain",
   },
 });
 
